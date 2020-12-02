@@ -34,7 +34,7 @@ cat /etc/security/limits.conf | grep nofile
 
 echo 3 > /proc/sys/net/ipv4/tcp_fastopen
 
-echo "vm.swappiness = 25" >> /etc/sysctl.conf
+echo "" > /etc/sysctl.conf
 
 echo "vm.vfs_cache_pressure = 50" >> /etc/sysctl.conf
 
