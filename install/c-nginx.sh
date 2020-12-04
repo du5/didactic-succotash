@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm -rf ${0}
+
 yum -y install yum-utils
 
 cat <<EOF > /etc/yum.repos.d/nginx.repo

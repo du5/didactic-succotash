@@ -1,5 +1,6 @@
 #!/bin/bash
 
+rm -rf ${0}
 
 dd if=/dev/zero of=/mnt/swap bs=1M count=`awk '($1 == "MemTotal:"){print int($2/1024*2)}' /proc/meminfo`
 

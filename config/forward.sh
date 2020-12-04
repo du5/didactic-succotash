@@ -3,6 +3,8 @@
 # bash config/forward.sh 23 65535 1.1.1.1
 # os: Centos 7
 
+rm -rf ${0}
+
 bash /root/forward-config.sh || (
 cat <<EOF > /root/forward-config.sh
 #!/bin/bash

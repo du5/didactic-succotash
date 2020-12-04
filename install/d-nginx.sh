@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm -rf ${0}
+
 apt install curl gnupg2 ca-certificates lsb-release
 
 echo "deb http://nginx.org/packages/mainline/debian `lsb_release -cs` nginx" \

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm -rf ${0}
+
 systemctl stop firewalld.service && systemctl disable firewalld.service && systemctl mask firewalld.service
 
 yum install initscripts iptables iptables-services -y
