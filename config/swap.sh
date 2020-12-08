@@ -12,6 +12,8 @@ swapon /mnt/swap
 
 echo "/mnt/swap swap swap defaults 0 0" >> /etc/fstab
 
+sed -i '/vm.swappiness/d' /etc/sysctl.conf
+
 echo "vm.swappiness = 25" >> /etc/sysctl.conf
 
 sysctl -w vm.swappiness=25

@@ -17,4 +17,8 @@ echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
 echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
 
+echo "vm.swappiness = 25" >> /etc/sysctl.conf
+
+sysctl -w vm.swappiness=25
+
 systemctl restart sshd
