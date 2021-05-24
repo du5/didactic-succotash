@@ -1,12 +1,9 @@
 #!/bin/bash
 
 # bash config/forward.sh 23 65535 1.1.1.1
-# os: Centos 7
 
-rm -rf ${0}
 
-bash /root/forward-config.sh || (
-cat <<EOF > /root/forward-config.sh
+cat <<EOF > `hexdump -n 16 -e '4/4 "%08X" 1 "\n"' /dev/random`.sh
 #!/bin/bash
 
 StartPort=${1}
@@ -27,8 +24,3 @@ iptables -t nat -I POSTROUTING -p udp --dport \${StartPort}:\${EndPort} -j MASQU
 
 service iptables save
 EOF
-
-bash /root/forward-config.sh
-)
-
-echo "bash /root/forward-config.sh" >> /etc/rc.local
