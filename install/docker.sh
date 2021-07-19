@@ -2,7 +2,7 @@
 
 rm -rf ${0}
 
-apt -y install curl || yum -y install curl
+apt -y install curl || yum -y install curl libseccomp-devel
 
 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 
