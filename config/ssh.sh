@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# curl -s https://raw.githubusercontent.com/du5/didactic-succotash/master/config/ssh.sh | bash 
+# wget https://raw.githubusercontent.com/du5/didactic-succotash/master/config/ssh.sh && bash ssh.sh
 rm -rf ${0}
 
 mkdir -p /root/.ssh
