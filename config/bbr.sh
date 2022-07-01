@@ -48,6 +48,10 @@ echo "net.ipv4.tcp_congestion_control = bbr" >> /etc/sysctl.conf
 
 echo "net.ipv4.tcp_fastopen = 3" >> /etc/sysctl.conf
 
+echo "net.core.rmem_default = 26214400" >> /etc/sysctl.conf
+
+echo "net.core.rmem_max = 26214400" >> /etc/sysctl.conf
+
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
 
 read -p "请按任意键重启，如需手动重启使用 Ctrl+C 退出。重启后需要执行 $0 2" var
