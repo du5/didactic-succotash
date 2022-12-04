@@ -38,21 +38,25 @@ cat /etc/security/limits.conf | grep nofile
 
 echo 3 > /proc/sys/net/ipv4/tcp_fastopen
 
-echo "" > /etc/sysctl.conf
+cat <<EOF > /etc/sysctl.conf
+net.core.somaxconn = 4096
+net.core.rmem_max = 26214400
+net.core.default_qdisc = cake
+net.core.rmem_default = 26214400
 
-echo "vm.vfs_cache_pressure = 50" >> /etc/sysctl.conf
+fs.file-max = 6553560
+vm.vfs_cache_pressure = 50
 
-echo "net.core.default_qdisc = cake" >> /etc/sysctl.conf
-
-echo "net.ipv4.tcp_congestion_control = bbr" >> /etc/sysctl.conf
-
-echo "net.ipv4.tcp_fastopen = 3" >> /etc/sysctl.conf
-
-echo "net.core.rmem_default = 26214400" >> /etc/sysctl.conf
-
-echo "net.core.rmem_max = 26214400" >> /etc/sysctl.conf
-
-echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
+net.ipv4.tcp_congestion_control = bbr
+net.ipv4.tcp_fastopen = 3
+net.ipv4.ip_forward = 1
+net.ipv4.tcp_slow_start_after_idle = 0
+net.ipv4.tcp_timestamps = 1
+net.ipv4.tcp_tw_reuse = 1
+net.ipv4.ip_local_port_range = 1024 65535
+net.ipv4.tcp_max_syn_backlog = 4096
+net.ipv4.tcp_abort_on_overflow = 1
+EOF
 
 read -p "请按任意键重启，如需手动重启使用 Ctrl+C 退出。重启后需要执行 $0 2" var
 
