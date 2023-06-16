@@ -26,13 +26,13 @@ sed -i '/soft nofile/d' /etc/security/limits.conf
 
 sed -i '/hard nofile/d' /etc/security/limits.conf
 
-echo "* soft nofile 512000" >> /etc/security/limits.conf
+echo "* soft nofile 1048576" >> /etc/security/limits.conf
 
-echo "* hard nofile 512000" >> /etc/security/limits.conf
+echo "* hard nofile 1048576" >> /etc/security/limits.conf
 
-echo "root soft nofile 512000" >> /etc/security/limits.conf
+echo "root soft nofile 1048576" >> /etc/security/limits.conf
 
-echo "root hard nofile 512000"  >> /etc/security/limits.conf
+echo "root hard nofile 1048576"  >> /etc/security/limits.conf
 
 cat /etc/security/limits.conf | grep nofile
 
