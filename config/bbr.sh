@@ -25,6 +25,8 @@ cat <<EOF > /etc/sysctl.conf
 net.core.default_qdisc = fq_pie
 net.ipv4.tcp_congestion_control = bbr
 net.ipv4.ip_forward = 1
+dev.raid.speed_limit_max = 2000000
+dev.raid.speed_limit_min = 1000000
 EOF
 
 sysctl -p
