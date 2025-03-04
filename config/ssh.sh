@@ -19,9 +19,7 @@ chmod 644 /root/.ssh/authorized_keys
 sed -i '/PermitRootLogin /d' /etc/ssh/sshd_config
 sed -i '/PasswordAuthentication /d' /etc/ssh/sshd_config
 sed -i '/PubkeyAuthentication /d' /etc/ssh/sshd_config
-sed -i '/Port 22/d' /etc/ssh/sshd_config
 
-echo "Port 223" >> /etc/ssh/sshd_config
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
 echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
